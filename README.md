@@ -78,7 +78,7 @@ MovieVerse: .NET 9 tabanlı, Clean Architecture ve CQRS kullanılan film keşif 
 
 
 
-NestJS E-commerce: Yüksek performanslı, PostgreSQL ve Redis destekli ticaret API'si.
+NestJS E-commerce: Yüksek performanslı, PostgreSQL veri tabanlı ticaret API'si.
 
 
 
