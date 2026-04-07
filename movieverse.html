@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MovieVerse | Kadir ÇALIŞKAN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#10b981', dim: '#059669' }, // Emerald theme for MovieVerse
+                        bg: { dark: '#0a0a0a', light: '#fdfdfd' },
+                        surf: { dark: '#141414', light: '#ffffff' },
+                        text: { dark: '#fafafa', light: '#171717' },
+                        mut: { dark: '#a3a3a3', light: '#737373' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        .glass { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); }
+        .light .glass { background: rgba(0, 0, 0, 0.01); border: 1px solid rgba(0, 0, 0, 0.05); }
+        .feature-card:hover { transform: translateY(-5px); border-color: #10b981; }
+    </style>
+</head>
+<body class="bg-bg-light dark:bg-bg-dark text-text-light dark:text-text-dark selection:bg-primary selection:text-black">
+
+<nav class="fixed top-0 left-0 w-full z-50 bg-bg-light/80 dark:bg-bg-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/5">
+    <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+        <a href="index.html" class="text-sm font-bold tracking-tighter uppercase font-headline">KADİR ÇALIŞKAN</a>
+        <div class="flex gap-3">
+            <button onclick="toggleTheme()" class="text-mut-light dark:text-mut-dark hover:text-primary transition-all p-2 rounded-full glass">
+                <span class="material-symbols-outlined text-[18px]" id="themeIcon">dark_mode</span>
+            </button>
+            <button onclick="toggleLanguage()" class="text-[10px] font-bold border border-black/10 dark:border-white/10 px-3 py-1 rounded-full glass hover:border-primary transition-all uppercase" id="langBtn">EN</button>
+        </div>
+    </div>
+</nav>
+
+<main class="max-w-6xl mx-auto pt-32 px-6 pb-24">
+    <a href="index.html" class="flex items-center gap-2 text-mut-light dark:text-mut-dark hover:text-primary transition-all mb-8 group text-sm">
+        <span class="material-symbols-outlined text-sm group-hover:-translate-x-1 transition-transform">arrow_back</span>
+        <span data-i18n="back">Projelerime Dön</span>
+    </a>
+
+    <div class="relative rounded-3xl overflow-hidden mb-16 aspect-[21/9]">
+        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover" alt="MovieVerse">
+        <div class="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/40 to-transparent"></div>
+        <div class="absolute bottom-8 left-8 right-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 bg-primary text-black text-[10px] font-black rounded-full uppercase tracking-widest">.NET 9</span>
+                <span class="px-3 py-1 bg-white/10 backdrop-blur text-white text-[10px] font-black rounded-full uppercase tracking-widest">Clean Architecture</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black text-white font-headline tracking-tighter uppercase italic">MovieVerse</h1>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        <div class="glass p-6 rounded-2xl feature-card transition-all duration-300">
+            <span class="material-symbols-outlined text-primary mb-3">psychology</span>
+            <h4 class="font-bold text-sm mb-1 uppercase tracking-tight" data-i18n="f-ai">AI & RAG</h4>
+            <p class="text-xs text-mut-dark leading-relaxed" data-i18n="f-ai-desc">Gemini API ve RAG mimarisi ile bağlamsal film önerileri.</p>
+        </div>
+        <div class="glass p-6 rounded-2xl feature-card transition-all duration-300">
+            <span class="material-symbols-outlined text-primary mb-3">search</span>
+            <h4 class="font-bold text-sm mb-1 uppercase tracking-tight" data-i18n="f-elastic">Elasticsearch</h4>
+            <p class="text-xs text-mut-dark leading-relaxed" data-i18n="f-elastic-desc">Milyonlarca film arasında milisaniyelik tam metin arama.</p>
+        </div>
+        <div class="glass p-6 rounded-2xl feature-card transition-all duration-300">
+            <span class="material-symbols-outlined text-primary mb-3">bolt</span>
+            <h4 class="font-bold text-sm mb-1 uppercase tracking-tight" data-i18n="f-redis">Redis Caching</h4>
+            <p class="text-xs text-mut-dark leading-relaxed" data-i18n="f-redis-desc">Sık kullanılan verilerde yüksek performans ve düşük gecikme.</p>
+        </div>
+        <div class="glass p-6 rounded-2xl feature-card transition-all duration-300">
+            <span class="material-symbols-outlined text-primary mb-3">notifications_active</span>
+            <h4 class="font-bold text-sm mb-1 uppercase tracking-tight" data-i18n="f-signalr">SignalR</h4>
+            <p class="text-xs text-mut-dark leading-relaxed" data-i18n="f-signalr-desc">Admin panelinde gerçek zamanlı etkileşim takibi ve bildirimler.</p>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-8 space-y-12">
+            
+            <section>
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="w-8 h-[2px] bg-primary"></span>
+                    <span data-i18n="h-arch">Mimari Felsefesi</span>
+                </h2>
+                <div class="space-y-4 text-mut-light dark:text-mut-dark text-lg leading-relaxed">
+                    <p data-i18n="p-arch">MovieVerse, yazılımın evrilebilirliğini korumak için <strong>Clean Architecture</strong> (Soğan Mimarisi) prensiplerine göre inşa edilmiştir. Domain katmanı sistemin kalbini oluştururken, tüm dış bağımlılıklar (API'ler, Veritabanları) Infrastructure katmanında izole edilmiştir.</p>
+                    <p data-i18n="p-cqrs">Veri akış yönetimi için <strong>CQRS (Command Query Responsibility Segregation)</strong> deseni MediatR kütüphanesi ile uygulanmıştır. Bu sayede okuma ve yazma operasyonları birbirinden bağımsız olarak ölçeklendirilebilir ve optimize edilebilir hale gelmiştir.</p>
+                </div>
+            </section>
+
+            <section class="glass p-8 rounded-3xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <span class="material-symbols-outlined text-8xl">smart_toy</span>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-primary uppercase" data-i18n="h-ai-tech">Yapay Zeka & RAG Entegrasyonu</h3>
+                <p class="text-mut-dark mb-6 text-sm" data-i18n="p-ai-desc">Proje, sadece bir arama motoru değil, aynı zamanda bir film asistanıdır. Google Gemini Pro modelini <strong>RAG (Retrieval-Augmented Generation)</strong> tekniğiyle birleştirir. Kullanıcıların soruları önce veritabanındaki metadata ile zenginleştirilir, ardından asistan en doğru öneriyi sunar.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[10px] px-3 py-1 border border-white/10 rounded-full font-mono">Semantic Search</span>
+                    <span class="text-[10px] px-3 py-1 border border-white/10 rounded-full font-mono">Contextual Memory</span>
+                    <span class="text-[10px] px-3 py-1 border border-white/10 rounded-full font-mono">Gemini-2.5-Flash Lite</span>
+                </div>
+            </section>
+        </div>
+
+        <div class="lg:col-span-4 space-y-6">
+            <div class="glass p-8 rounded-3xl border-t-2 border-primary">
+                <h3 class="font-black text-xs uppercase tracking-[0.2em] mb-6 text-mut-dark">Stack & Tooling</h3>
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-[10px] block text-mut-dark mb-1 uppercase font-bold">Backend</span>
+                        <div class="text-sm font-medium">.NET 9 / C# 13</div>
+                    </div>
+                    <div>
+                        <span class="text-[10px] block text-mut-dark mb-1 uppercase font-bold">Persistence</span>
+                        <div class="text-sm font-medium">EF Core / MSSQL / Redis</div>
+                    </div>
+                    <div>
+                        <span class="text-[10px] block text-mut-dark mb-1 uppercase font-bold">Search & AI</span>
+                        <div class="text-sm font-medium">Elasticsearch / Gemini API</div>
+                    </div>
+                    <div>
+                        <span class="text-[10px] block text-mut-dark mb-1 uppercase font-bold">Architecture</span>
+                        <div class="text-sm font-medium">CQRS / MediatR / Docker</div>
+                    </div>
+                </div>
+
+                <div class="mt-10 space-y-3">
+                    <a href="#" class="flex items-center justify-center gap-2 w-full py-4 bg-primary text-black font-black text-xs rounded-2xl hover:opacity-90 transition-all uppercase tracking-widest shadow-xl shadow-primary/20">
+                        <span class="material-symbols-outlined text-sm text-black">code</span>
+                        GitHub Repo
+                    </a>
+                    
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</main>
+
+<script>
+    const translations = {
+        tr: {
+            "back": "Projelerime Dön",
+            "f-ai": "AI & RAG",
+            "f-ai-desc": "Gemini API ve RAG mimarisi ile bağlamsal film önerileri.",
+            "f-elastic": "Elasticsearch",
+            "f-elastic-desc": "Milyonlarca film arasında milisaniyelik tam metin arama.",
+            "f-redis": "Redis Caching",
+            "f-redis-desc": "Sık kullanılan verilerde yüksek performans ve düşük gecikme.",
+            "f-signalr": "SignalR",
+            "f-signalr-desc": "Gerçek zamanlı etkileşim takibi ve bildirimler.",
+            "h-arch": "Mimari Felsefesi",
+            "p-arch": "MovieVerse, yazılımın evrilebilirliğini korumak için Clean Architecture prensiplerine göre inşa edilmiştir. Domain katmanı kalbi oluştururken, dış bağımlılıklar Infrastructure'da izole edilmiştir.",
+            "p-cqrs": "Veri akış yönetimi için CQRS deseni MediatR kütüphanesi ile uygulanmıştır. Bu sayede okuma/yazma operasyonları birbirinden bağımsız ölçeklenebilir.",
+            "h-ai-tech": "Yapay Zeka & RAG Entegrasyonu",
+            "p-ai-desc": "Proje, Google Gemini modelini RAG tekniğiyle birleştirerek kullanıcılara metadata destekli akıllı bir asistan sunar.",
+            "h-setup": "Kurulum & Ortam",
+            "h-status": "Proje Durumu"
+        },
+        en: {
+            "back": "Back to Projects",
+            "f-ai": "AI & RAG",
+            "f-ai-desc": "Contextual movie recommendations via Gemini API and RAG architecture.",
+            "f-elastic": "Elasticsearch",
+            "f-elastic-desc": "Millisecond-fast full-text search across millions of records.",
+            "f-redis": "Redis Caching",
+            "f-redis-desc": "High performance and low latency for frequently accessed data.",
+            "f-signalr": "SignalR",
+            "f-signalr-desc": "Real-time interaction tracking and dashboard notifications.",
+            "h-arch": "Architectural Philosophy",
+            "p-arch": "MovieVerse is built with Clean Architecture to ensure scalability. The Domain layer is the core, while all dependencies are isolated in Infrastructure.",
+            "p-cqrs": "CQRS pattern is implemented via MediatR for data flow management, allowing read/write operations to scale independently.",
+            "h-ai-tech": "AI & RAG Integration",
+            "p-ai-desc": "The project integrates Google Gemini with RAG techniques to provide users with a smart, metadata-driven movie assistant.",
+            "h-setup": "Installation & Environment",
+            "h-status": "Project Status"
+        }
+    };
+
+    let currentLang = localStorage.getItem('movieverse_lang') || 'tr';
+    let currentTheme = localStorage.getItem('movieverse_theme') || 'dark';
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'tr' ? 'en' : 'tr';
+        localStorage.setItem('movieverse_lang', currentLang);
+        updateUI();
+    }
+
+    function toggleTheme() {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('movieverse_theme', currentTheme);
+        updateUI();
+    }
+
+    function updateUI() {
+        // Theme Update
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.getElementById('themeIcon').innerText = 'light_mode';
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.getElementById('themeIcon').innerText = 'dark_mode';
+        }
+
+        // Language Update
+        document.getElementById('langBtn').innerText = currentLang === 'tr' ? 'EN' : 'TR';
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[currentLang][key]) el.innerText = translations[currentLang][key];
+        });
+    }
+
+    updateUI();
+</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NestJS Ecommerce Backend | Kadir ÇALIŞKAN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#b89fff', dim: '#834fff' },
+                        secondary: '#00e3fd',
+                        bg: { dark: '#0e0e0e', light: '#f9f9f9' },
+                        surf: { dark: '#1a1a1a', light: '#ffffff' },
+                        text: { dark: '#ffffff', light: '#1a1a1a' },
+                        mut: { dark: '#adaaaa', light: '#666666' }
+                    }
+                }
+              }
+            }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        .glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .light .glass { background: rgba(0, 0, 0, 0.02); border: 1px solid rgba(0, 0, 0, 0.05); }
+    </style>
+</head>
+<body class="bg-bg-light dark:bg-bg-dark text-text-light dark:text-text-dark selection:bg-primary selection:text-black p-6 md:p-20">
+
+<nav class="fixed top-0 left-0 w-full z-50 bg-bg-light/80 dark:bg-bg-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/5">
+    <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+        <a href="index.html" class="text-lg font-bold tracking-tight font-headline uppercase text-text-light dark:text-text-dark">KADİR ÇALIŞKAN</a>
+        <div class="flex gap-2">
+            <button onclick="toggleTheme()" class="text-mut-light dark:text-mut-dark hover:text-primary transition-all p-1 rounded">
+                <span class="material-symbols-outlined text-sm" id="themeIcon">dark_mode</span>
+            </button>
+            <button onclick="toggleLanguage()" class="text-xs font-mono border border-black/20 dark:border-white/20 px-2 py-1 rounded text-text-light dark:text-text-dark" id="langBtn">EN</button>
+        </div>
+    </div>
+</nav>
+
+<div class="max-w-4xl mx-auto pt-20">
+    <a href="index.html" class="text-stone-500 hover:text-text-light dark:hover:text-text-dark transition-all mb-12 inline-block font-medium">← <span data-i18n="back">Ana Sayfaya Dön</span></a>
+    
+    <header class="mb-12">
+        <h1 class="text-4xl md:text-6xl font-black mb-4 text-emerald-600 dark:text-emerald-400 uppercase font-headline">NestJS Ecommerce Backend</h1>
+        <p class="text-stone-400" data-i18n="subtitle">NestJS ile Kapsamlı ve Modüler Arka Uç Mimarisi</p>
+    </header>
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzQLEXxBOBeYFl4oEQ623kGaCgjOkkk8RqYQ&s" class="w-full h-80 object-cover rounded-xl mb-12 border border-black/5 dark:border-white/5" alt="Ecommerce">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+        <div class="md:col-span-2 space-y-8 text-stone-400 leading-relaxed">
+            <section>
+                <h2 class="text-2xl font-bold text-text-light dark:text-text-dark mb-4 font-headline" data-i18n="h-scope">Proje Kapsamı</h2>
+                <p data-i18n="p-scope">Bu proje, modern bir e-ticaret platformunun tüm gereksinimlerini karşılamak üzere NestJS framework'ü kullanılarak geliştirilmiş, sürdürülebilir ve ölçeklenebilir bir arka uç (backend) mimarisidir. Proje, kodun okunabilirliğini ve bakımını kolaylaştırmak amacıyla katmanlı bir yapıda kurgulanmıştır.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold text-text-light dark:text-text-dark mb-4 font-headline" data-i18n="h-tech">Teknik Detaylar</h2>
+                <ul class="list-disc pl-5 mt-4 space-y-2 text-emerald-600 dark:text-emerald-400 font-medium">
+                    <li data-i18n="t1">DTO & Entity & Mapper Desenleri</li>
+                    <li data-i18n="t2">JWT ile Kimlik Doğrulama (Authentication)</li>
+                    <li data-i18n="t3">Rol Tabanlı Yetkilendirme (Authorization)</li>
+                    <li data-i18n="t4">Kapsamlı CRUD Operasyonları</li>
+                    <li data-i18n="t5">Veri Validasyonu ve Hata Yönetimi</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="space-y-6 md:sticky md:top-24 md:h-fit">
+            <div class="glass p-6 rounded-xl border-l-4 border-emerald-500 transition-colors">
+                <h3 class="font-bold text-mut-light dark:text-mut-dark mb-3 uppercase text-xs tracking-widest">Stack</h3>
+                <div class="flex flex-col gap-2 text-sm text-text-light dark:text-text-dark font-medium">
+                    <span>• NestJS (Node.js)</span>
+                    <span>• TypeScript</span>
+                    <span>• TypeORM / PostgreSQL</span>
+                    <span>• Passport & JWT</span>
+                    <span>• Class-Validator</span>
+                </div>
+            </div>
+            <a href="https://github.com/KULLANICIADI/nestjs-ecommerce" target="_blank" class="block w-full py-3 bg-emerald-600 dark:bg-emerald-500 text-black text-center font-bold rounded-xl hover:opacity-90 transition-all shadow-lg shadow-emerald-500/10" data-i18n="github">GitHub'da İncele</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- Shared Logic (Theme/Lang) ---
+    const translations = {
+        tr: {
+            "back": "Ana Sayfaya Dön",
+            "subtitle": "NestJS ile Kapsamlı ve Modüler Arka Uç Mimarisi",
+            "h-scope": "Proje Kapsamı",
+            "p-scope": "Bu proje, modern bir e-ticaret platformunun tüm gereksinimlerini karşılamak üzere NestJS framework'ü kullanılarak geliştirilmiş, sürdürülebilir ve ölçeklenebilir bir arka uç (backend) mimarisidir. Proje, kodun okunabilirliğini ve bakımını kolaylaştırmak amacıyla katmanlı bir yapıda kurgulanmıştır.",
+            "h-tech": "Teknik Detaylar",
+            "t1": "DTO & Entity & Mapper Desenleri",
+            "t2": "JWT ile Kimlik Doğrulama (Authentication)",
+            "t3": "Rol Tabanlı Yetkilendirme (Authorization)",
+            "t4": "Kapsamlı CRUD Operasyonları",
+            "t5": "Veri Validasyonu ve Hata Yönetimi",
+            "github": "GitHub'da İncele"
+        },
+        en: {
+            "back": "Back to Home",
+            "subtitle": "Comprehensive and Modular Backend Architecture with NestJS",
+            "h-scope": "Project Scope",
+            "p-scope": "This is a sustainable and scalable backend architecture developed using the NestJS framework to meet all the requirements of a modern e-commerce platform. The project is designed in a layered structure to facilitate code readability and maintenance.",
+            "h-tech": "Technical Details",
+            "t1": "DTO, Entity, & Mapper Design Patterns",
+            "t2": "Authentication via JWT",
+            "t3": "Role-Based Authorization",
+            "t4": "Comprehensive CRUD Operations",
+            "t5": "Data Validation and Error Handling",
+            "github": "View on GitHub"
+        }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'tr';
+    updateLanguage();
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'tr' ? 'en' : 'tr';
+        localStorage.setItem('lang', currentLang);
+        updateLanguage();
+    }
+
+    function updateLanguage() {
+        document.getElementById('langBtn').innerText = currentLang === 'tr' ? 'EN' : 'TR';
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[currentLang][key]) { el.innerText = translations[currentLang][key]; }
+        });
+    }
+
+    let currentTheme = localStorage.getItem('theme') || 'dark';
+    updateTheme();
+
+    function toggleTheme() {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', currentTheme);
+        updateTheme();
+    }
+
+    function updateTheme() {
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+            document.getElementById('themeIcon').innerText = 'light_mode';
+        } else {
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
+            document.getElementById('themeIcon').innerText = 'dark_mode';
+        }
+    }
+</script>
+</body>
+</html>

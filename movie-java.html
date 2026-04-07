@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Java Movie Backend | Kadir ÇALIŞKAN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#b89fff', dim: '#834fff' },
+                        secondary: '#00e3fd',
+                        bg: { dark: '#0e0e0e', light: '#f9f9f9' },
+                        surf: { dark: '#1a1a1a', light: '#ffffff' },
+                        text: { dark: '#ffffff', light: '#1a1a1a' },
+                        mut: { dark: '#adaaaa', light: '#666666' }
+                    }
+                }
+              }
+            }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        .glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .light .glass { background: rgba(0, 0, 0, 0.02); border: 1px solid rgba(0, 0, 0, 0.05); }
+    </style>
+</head>
+<body class="bg-bg-light dark:bg-bg-dark text-text-light dark:text-text-dark selection:bg-primary selection:text-black p-6 md:p-20">
+
+<nav class="fixed top-0 left-0 w-full z-50 bg-bg-light/80 dark:bg-bg-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/5">
+    <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+        <a href="index.html" class="text-lg font-bold tracking-tight font-headline uppercase text-text-light dark:text-text-dark">KADİR ÇALIŞKAN</a>
+        <div class="flex gap-2">
+            <button onclick="toggleTheme()" class="text-mut-light dark:text-mut-dark hover:text-primary transition-all p-1 rounded">
+                <span class="material-symbols-outlined text-sm" id="themeIcon">dark_mode</span>
+            </button>
+            <button onclick="toggleLanguage()" class="text-xs font-mono border border-black/20 dark:border-white/20 px-2 py-1 rounded text-text-light dark:text-text-dark" id="langBtn">EN</button>
+        </div>
+    </div>
+</nav>
+
+<div class="max-w-4xl mx-auto pt-20">
+    <a href="index.html" class="text-stone-500 hover:text-text-light dark:hover:text-text-dark transition-all mb-12 inline-block font-medium">← <span data-i18n="back">Ana Sayfaya Dön</span></a>
+    
+    <header class="mb-12">
+        <h1 class="text-4xl md:text-6xl font-black mb-4 text-orange-600 dark:text-orange-400 uppercase font-headline">Java Movie Backend</h1>
+        <p class="text-stone-400" data-i18n="subtitle">Java Spring Boot ile JWT Korumalı Film API'si</p>
+    </header>
+
+    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200" class="w-full h-80 object-cover rounded-xl mb-12 border border-black/5 dark:border-white/5" alt="Java Movie">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+        <div class="md:col-span-2 space-y-8 text-stone-400 leading-relaxed">
+            <section>
+                <h2 class="text-2xl font-bold text-text-light dark:text-text-dark mb-4 font-headline" data-i18n="h-scope">Proje Özeti</h2>
+                <p data-i18n="p-scope">Bu proje, Java programlama dili ve Spring Boot framework'ü kullanılarak geliştirilmiş kapsamlı bir film arka uç (backend) projesidir. Film verilerini yönetmek için RESTful API standartlarında tasarlanan proje, güvenliği merkeze alır.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold text-text-light dark:text-text-dark mb-4 font-headline" data-i18n="h-tech">Güvenlik ve Yapılandırma</h2>
+                <p data-i18n="p-tech">Proje içerisinde güvenlik işlemleri için <strong>JWT (JSON Web Token)</strong> tabanlı Kimlik Doğrulama (Authentication) ve Yetkilendirme (Authorization) mekanizmaları kurgulanmıştır. Kapsamlı CRUD operasyonları başarıyla gerçekleştirilmiştir.</p>
+               
+            </section>
+        </div>
+
+        <div class="space-y-6 md:sticky md:top-24 md:h-fit">
+            <div class="glass p-6 rounded-xl border-l-4 border-orange-500 transition-colors">
+                <h3 class="font-bold text-mut-light dark:text-mut-dark mb-3 uppercase text-xs tracking-widest">Stack</h3>
+                <div class="flex flex-col gap-2 text-sm text-text-light dark:text-text-dark font-medium">
+                    <span>• Java</span>
+                    <span>• Spring Boot</span>
+                    <span>• Spring Security & JWT</span>
+                    <span>• RESTful API</span>
+                    <span>• SQL</span>
+                </div>
+            </div>
+            <a href="https://github.com/KAD4TA/movie_backend_project" target="_blank" class="block w-full py-3 bg-orange-600 dark:bg-orange-500 text-black text-center font-bold rounded-xl hover:opacity-90 transition-all shadow-lg shadow-orange-500/10" data-i18n="github">GitHub'da İncele</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- Shared Logic ---
+    const translations = {
+        tr: {
+            "back": "Ana Sayfaya Dön",
+            "subtitle": "Java Spring Boot ile JWT Korumalı Film API'si",
+            "h-scope": "Proje Özeti",
+            "p-scope": "Bu proje, Java programlama dili ve Spring Boot framework'ü kullanılarak geliştirilmiş kapsamlı bir film arka uç (backend) projesidir. Film verilerini yönetmek için RESTful API standartlarında tasarlanan proje, güvenliği merkeze alır.",
+            "h-tech": "Güvenlik ve Yapılandırma",
+            "p-tech": "Proje içerisinde güvenlik işlemleri için JWT (JSON Web Token) tabanlı Kimlik Doğrulama (Authentication) ve Yetkilendirme (Authorization) mekanizmaları kurgulanmıştır. Kapsamlı CRUD operasyonları başarıyla gerçekleştirilmiştir.",
+            "github": "GitHub'da İncele"
+        },
+        en: {
+            "back": "Back to Home",
+            "subtitle": "JWT-Protected Movie API with Java Spring Boot",
+            "h-scope": "Project Summary",
+            "p-scope": "This is a comprehensive movie backend project developed using the Java programming language and the Spring Boot framework. Designed with RESTful API standards for managing movie data, the project places security at its core.",
+            "h-tech": "Security and Configuration",
+            "p-tech": "JWT (JSON Web Token)-based Authentication and Authorization mechanisms are established within the project for security operations. Comprehensive CRUD operations have been successfully implemented.",
+            "github": "View on GitHub"
+        }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'tr';
+    updateLanguage();
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'tr' ? 'en' : 'tr';
+        localStorage.setItem('lang', currentLang);
+        updateLanguage();
+    }
+
+    function updateLanguage() {
+        document.getElementById('langBtn').innerText = currentLang === 'tr' ? 'EN' : 'TR';
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[currentLang][key]) { el.innerText = translations[currentLang][key]; }
+        });
+    }
+
+    let currentTheme = localStorage.getItem('theme') || 'dark';
+    updateTheme();
+
+    function toggleTheme() {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', currentTheme);
+        updateTheme();
+    }
+
+    function updateTheme() {
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+            document.getElementById('themeIcon').innerText = 'light_mode';
+        } else {
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
+            document.getElementById('themeIcon').innerText = 'dark_mode';
+        }
+    }
+</script>
+</body>
+</html>

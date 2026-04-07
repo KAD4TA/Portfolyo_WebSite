@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Kadir ÇALIŞKAN | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: { DEFAULT: "#b89fff", dim: "#834fff" },
+              secondary: "#00e3fd",
+              bg: { dark: "#0e0e0e", light: "#f9f9f9" },
+              surf: { dark: "#1a1a1a", light: "#ffffff" },
+              text: { dark: "#ffffff", light: "#1a1a1a" },
+              mut: { dark: "#adaaaa", light: "#666666" },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined { font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24; }
+      body { font-family: "Inter", sans-serif; transition: background-color 0.3s, color 0.3s; scroll-behavior: smooth; }
+      .glass-card { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; }
+      .light .glass-card { background: rgba(0, 0, 0, 0.02); border: 1px solid rgba(0, 0, 0, 0.05); }
+      .glass-card:hover { border-color: rgba(184, 159, 255, 0.3); transform: translateY(-4px); }
+      .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(184, 159, 255, 0.08) 0%, transparent 60%); }
+    </style>
+  </head>
+  <body class="bg-bg-light dark:bg-bg-dark text-text-light dark:text-text-dark selection:bg-primary selection:text-black">
+    
+    <nav class="fixed top-0 w-full z-50 bg-bg-light/80 dark:bg-bg-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/5">
+      <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+        <div class="text-lg font-black tracking-tighter uppercase">KADİR ÇALIŞKAN</div>
+        <div class="flex gap-4 items-center">
+          <div class="hidden md:flex gap-6 mr-4 uppercase text-[10px] font-black tracking-widest text-mut-light dark:text-mut-dark">
+            <a href="#skills" class="hover:text-primary transition-colors">Yetkinlikler</a>
+            <a href="#projects" class="hover:text-primary transition-colors">Projeler</a>
+            <a href="#about" class="hover:text-primary transition-colors">Hakkımda</a>
+          </div>
+          <div class="flex gap-2 border-l border-black/10 dark:border-white/10 pl-4">
+            <button onclick="toggleTheme()" class="text-mut-light dark:text-mut-dark hover:text-primary transition-all p-1">
+              <span class="material-symbols-outlined text-sm" id="themeIcon">dark_mode</span>
+            </button>
+            <button onclick="toggleLanguage()" class="text-xs font-mono border border-black/20 dark:border-white/20 px-2 py-1 rounded hover:bg-black/5 dark:hover:bg-white/10" id="langBtn">EN</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24">
+      <section class="min-h-[90vh] flex flex-col items-center justify-center text-center px-6 relative hero-gradient">
+        <div class="max-w-4xl">
+          <h2 class="text-primary font-black tracking-[0.4em] text-[10px] md:text-xs mb-4 uppercase" data-i18n="hero-title">Software Engineer | Backend & AI Specialist</h2>
+          <h1 class="text-6xl md:text-8xl font-black font-headline mb-8 leading-tight tracking-tighter">
+            KADİR <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">ÇALIŞKAN</span>
+          </h1>
+          <p class="text-mut-light dark:text-mut-dark text-xl md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed italic font-medium" data-i18n="philosophy-text">
+            "Yazılım geliştirmeyi sadece kod yazmak değil, sürdürülebilir mimariler tasarlamak olarak görüyorum."
+          </p>
+          
+          <div class="flex gap-6 justify-center mb-12">
+            <a href="https://github.com/KAD4TA" target="_blank" class="text-mut-light dark:text-mut-dark hover:text-primary transition-all flex items-center gap-2 text-[10px] font-black uppercase tracking-widest group">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              GITHUB
+            </a>
+            <a href="https://www.linkedin.com/in/kadir-çalışkan-1190aa205" target="_blank" class="text-mut-light dark:text-mut-dark hover:text-primary transition-all flex items-center gap-2 text-[10px] font-black uppercase tracking-widest group">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              LINKEDIN
+            </a>
+          </div>
+
+          <div class="flex gap-4 justify-center">
+            <a href="#projects" class="bg-primary text-black px-10 py-5 rounded-2xl font-bold text-[10px] uppercase tracking-[0.2em] hover:opacity-90 transition-all shadow-2xl shadow-primary/20" data-i18n="hero-btn">Çalışmalarımı Gör</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="py-32 px-6 bg-surf-light/30 dark:bg-surf-dark/30 border-y border-black/5 dark:border-white/5">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="text-xs font-black tracking-[0.4em] text-primary uppercase mb-16 text-center" data-i18n="nav-skills">Yetkinlikler</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="glass-card p-10 rounded-3xl">
+              <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 text-primary">
+                <span class="material-symbols-outlined">terminal</span>
+              </div>
+              <h3 class="font-bold mb-4 uppercase text-[11px] tracking-widest text-secondary">Backend & Arch.</h3>
+              <p class="text-sm text-mut-light dark:text-mut-dark font-medium leading-loose">.NET 9, NestJS, Spring Boot, Clean Architecture, CQRS, MediatR</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-3xl">
+              <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-6 text-secondary">
+                <span class="material-symbols-outlined">psychology</span>
+              </div>
+              <h3 class="font-bold mb-4 uppercase text-[11px] tracking-widest text-secondary">AI & Deep Learning</h3>
+              <p class="text-sm text-mut-light dark:text-mut-dark font-medium leading-loose">Python, TensorFlow, MobileNet, Computer Vision, NLP, PyTorch</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-3xl">
+              <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 text-emerald-500">
+                <span class="material-symbols-outlined">database</span>
+              </div>
+              <h3 class="font-bold mb-4 uppercase text-[11px] tracking-widest text-secondary">Data & Search</h3>
+              <p class="text-sm text-mut-light dark:text-mut-dark font-medium leading-loose">PostgreSQL, Elasticsearch, Redis, Pandas, NumPy, Data Scraping</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-3xl">
+              <div class="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6 text-orange-500">
+                <span class="material-symbols-outlined">layers</span>
+              </div>
+              <h3 class="font-bold mb-4 uppercase text-[11px] tracking-widest text-secondary">DevOps & Tools</h3>
+              <p class="text-sm text-mut-light dark:text-mut-dark font-medium leading-loose">Git, Docker, JWT Auth, SignalR, CI/CD, React</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="py-32 px-6" id="projects">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex justify-between items-end mb-16">
+            <div>
+              <h2 class="text-xs font-black tracking-[0.4em] text-primary uppercase mb-4" data-i18n="nav-projects">Projeler</h2>
+              <h3 class="text-4xl md:text-5xl font-black font-headline tracking-tighter" data-i18n="projects-title">SEÇİLMİŞ ÇALIŞMALAR</h3>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="glass-card rounded-3xl overflow-hidden group flex flex-col">
+              <div class="relative overflow-hidden h-52">
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" alt="MovieVerse" />
+              </div>
+              <div class="p-8 flex flex-col flex-grow">
+                <span class="px-3 py-1 bg-emerald-500/10 text-emerald-500 text-[10px] font-bold rounded-full uppercase tracking-widest w-fit">.NET 9</span>
+                <h3 class="text-2xl font-bold mt-4 mb-3">MovieVerse</h3>
+                <p class="text-mut-light dark:text-mut-dark text-sm mb-8 leading-relaxed flex-grow" data-i18n="p-movie-desc">Clean Architecture, CQRS ve MediatR tasarım desenlerini kullanan film keşif platformu.</p>
+                <a href="movieverse.html" class="text-primary text-[11px] font-black flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest">İNCELE <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-3xl overflow-hidden group flex flex-col">
+              <div class="relative overflow-hidden h-52">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzQLEXxBOBeYFl4oEQ623kGaCgjOkkk8RqYQ&s" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" alt="NestJS" />
+              </div>
+              <div class="p-8 flex flex-col flex-grow">
+                <span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase tracking-widest w-fit">NestJS</span>
+                <h3 class="text-2xl font-bold mt-4 mb-3">E-commerce API</h3>
+                <p class="text-mut-light dark:text-mut-dark text-sm mb-8 leading-relaxed flex-grow" data-i18n="p-ecom-desc">NestJS ile geliştirilmiş kapsamlı e-ticaret arka ucu. DTO, Entity ve Auth operasyonlarını içerir.</p>
+                <a href="ecommerce-nestjs.html" class="text-primary text-[11px] font-black flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest">İNCELE <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-3xl overflow-hidden group flex flex-col">
+              <div class="relative overflow-hidden h-52">
+                <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" alt="Brain Tumor" />
+              </div>
+              <div class="p-8 flex flex-col flex-grow">
+                <span class="px-3 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded-full uppercase tracking-widest w-fit">Deep Learning</span>
+                <h3 class="text-2xl font-bold mt-4 mb-3">Tumor Detection</h3>
+                <p class="text-mut-light dark:text-mut-dark text-sm mb-8 leading-relaxed flex-grow" data-i18n="p-brain-desc">MR görüntüleri üzerinde MobileNet tabanlı %91 başarı oranına sahip sınıflandırma modeli.</p>
+                <a href="brain-tumor.html" class="text-primary text-[11px] font-black flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest">İNCELE <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-3xl overflow-hidden group flex flex-col">
+              <div class="relative overflow-hidden h-52">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" alt="Spring" />
+              </div>
+              <div class="p-8 flex flex-col flex-grow">
+                <span class="px-3 py-1 bg-orange-500/10 text-orange-500 text-[10px] font-bold rounded-full uppercase tracking-widest w-fit">Spring Boot</span>
+                <h3 class="text-2xl font-bold mt-4 mb-3">Java Backend</h3>
+                <p class="text-mut-light dark:text-mut-dark text-sm mb-8 leading-relaxed flex-grow" data-i18n="p-java-desc">JWT Security ve CRUD operasyonları ile geliştirilmiş klonlanabilir film arka uç projesi.</p>
+                <a href="movie-java.html" class="text-primary text-[11px] font-black flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest">İNCELE <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-3xl overflow-hidden group flex flex-col">
+              <div class="relative overflow-hidden h-52">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbXa5DMzJZnV-fwOOAW6arZn0ITnAYKM-Y0g&s" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" alt="ASL" />
+              </div>
+              <div class="p-8 flex flex-col flex-grow">
+                <span class="px-3 py-1 bg-cyan-500/10 text-cyan-500 text-[10px] font-bold rounded-full uppercase tracking-widest w-fit">Vision AI</span>
+                <h3 class="text-2xl font-bold mt-4 mb-3">ASL Recognition</h3>
+                <p class="text-mut-light dark:text-mut-dark text-sm mb-8 leading-relaxed flex-grow" data-i18n="p-asl-desc">24 harfli özel veri setiyle MobileNet ve Transfer Learning kullanarak işaret dili tanıma.</p>
+                <a href="asl-recognition.html" class="text-primary text-[11px] font-black flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest">İNCELE <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-3xl overflow-hidden group flex flex-col">
+              <div class="relative overflow-hidden h-52">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" alt="NLP" />
+              </div>
+              <div class="p-8 flex flex-col flex-grow">
+                <span class="px-3 py-1 bg-purple-500/10 text-purple-500 text-[10px] font-bold rounded-full uppercase tracking-widest w-fit">NLP</span>
+                <h3 class="text-2xl font-bold mt-4 mb-3">Smart QA</h3>
+                <p class="text-mut-light dark:text-mut-dark text-sm mb-8 leading-relaxed flex-grow" data-i18n="p-qa-desc">Hugging Face QA modellerini bir arayüz ile birleştirerek geliştirilen akıllı asistan.</p>
+                <a href="smart-qa.html" class="text-primary text-[11px] font-black flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest">İNCELE <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="py-32 px-6 bg-surf-light dark:bg-surf-dark transition-colors" id="about">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-xs font-black tracking-[0.4em] text-primary uppercase mb-8" data-i18n="nav-about">Hakkımda</h2>
+          <p class="text-text-light dark:text-text-dark leading-relaxed text-2xl font-medium mb-10" data-i18n="about-text">
+            Temmuz 2020 mezunuyum. Yazılım mühendisliği eğitimi almamış olmama rağmen, analitik düşünme yapım ve öğrenme tutkum beni karmaşık backend sistemleri kurmaya ve yapay zeka modelleri eğitmeye yöneltti.
+          </p>
+          <div class="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 rounded-full text-[10px] font-bold text-primary tracking-widest uppercase">
+            <span class="material-symbols-outlined text-sm">location_on</span> İstanbul, Türkiye
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-20 border-t border-black/5 dark:border-white/5 text-center text-mut-light dark:text-mut-dark text-[10px] font-black uppercase tracking-[0.4em]">
+      <div class="mb-6 flex gap-4 justify-center grayscale opacity-50">
+        <img src="https://cdn.simpleicons.org/dotnet/currentColor" class="w-5" title=".NET" />
+        <img src="https://cdn.simpleicons.org/nestjs/currentColor" class="w-5" title="NestJS" />
+        <img src="https://cdn.simpleicons.org/tensorflow/currentColor" class="w-5" title="TensorFlow" />
+        <img src="https://cdn.simpleicons.org/postgresql/currentColor" class="w-5" title="PostgreSQL" />
+      </div>
+      <p>© 2026 KADİR ÇALIŞKAN </p>
+    </footer>
+
+    <script>
+      const translations = {
+        tr: {
+          "nav-projects": "Projeler",
+          "nav-skills": "Yetkinlikler",
+          "nav-about": "Hakkımda",
+          "hero-title": "Software Engineer | Backend & AI Geliştirici",
+          "philosophy-text": '"Yazılım geliştirmeyi sadece kod yazmak değil, sürdürülebilir mimariler tasarlamak olarak görüyorum."',
+          "hero-btn": "Çalışmalarımı Gör",
+          "projects-title": "SEÇİLMİŞ ÇALIŞMALAR",
+          "p-ecom-desc": "NestJS ile geliştirilmiş kapsamlı e-ticaret arka ucu. DTO, Entity ve Auth operasyonlarını içerir.",
+          "p-brain-desc": "MR görüntüleri üzerinde MobileNet tabanlı %91 başarı oranına sahip sınıflandırma modeli.",
+          "p-java-desc": "JWT Security ve CRUD operasyonları ile geliştirilmiş klonlanabilir film arka uç projesi.",
+          "p-movie-desc": "Clean Architecture, CQRS ve MediatR tasarım desenlerini kullanan film keşif platformu.",
+          "p-asl-desc": "24 harfli özel veri setiyle MobileNet ve Transfer Learning kullanarak işaret dili tanıma.",
+          "p-qa-desc": "Hugging Face QA modellerini bir arayüz ile birleştirerek geliştirilen akıllı asistan.",
+          "about-text": "Temmuz 2020 mezunuyum. Yazılım mühendisliği eğitimi almamış olmama rağmen, analitik düşünme yapım ve öğrenme tutkum beni karmaşık backend sistemleri kurmaya ve yapay zeka modelleri eğitmeye yöneltti."
+        },
+        en: {
+          "nav-projects": "Projects",
+          "nav-skills": "Skills",
+          "nav-about": "About",
+          "hero-title": "Software Engineer | Backend & AI Developer",
+          "philosophy-text": '"I see software development not just as writing code, but as designing sustainable architectures."',
+          "hero-btn": "View My Work",
+          "projects-title": "FEATURED WORKS",
+          "p-ecom-desc": "Comprehensive e-commerce backend developed with NestJS. Includes DTO, Entity, and Auth operations.",
+          "p-brain-desc": "Classification model based on MobileNet with 91% success rate on MR images.",
+          "p-java-desc": "Clonable movie backend project developed with JWT Security and CRUD operations.",
+          "p-movie-desc": "Movie discovery platform using Clean Architecture, CQRS, and MediatR design patterns.",
+          "p-asl-desc": "Sign language recognition using MobileNet and Transfer Learning with a custom dataset.",
+          "p-qa-desc": "Smart assistant developed by combining Hugging Face QA models with an interface.",
+          "about-text": "I graduated in July 2020. Although I did not receive a formal software engineering education, my analytical mindset and passion for learning led me to build complex backend systems and train AI models."
+        }
+      };
+
+      let currentLang = localStorage.getItem("lang") || "tr";
+      let currentTheme = localStorage.getItem("theme") || "dark";
+
+      function toggleLanguage() {
+        currentLang = currentLang === "tr" ? "en" : "tr";
+        localStorage.setItem("lang", currentLang);
+        updateUI();
+      }
+
+      function toggleTheme() {
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
+        localStorage.setItem("theme", currentTheme);
+        updateUI();
+      }
+
+      function updateUI() {
+        // Theme
+        if (currentTheme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.getElementById("themeIcon").innerText = "light_mode";
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.getElementById("themeIcon").innerText = "dark_mode";
+        }
+        // Language
+        document.getElementById("langBtn").innerText = currentLang === "tr" ? "EN" : "TR";
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (translations[currentLang][key]) el.innerText = translations[currentLang][key];
+        });
+      }
+
+      updateUI();
+    </script>
+  </body>
+</html>

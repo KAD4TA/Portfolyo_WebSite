@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Smart Q&A Assistant | Kadir ÇALIŞKAN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#b89fff', dim: '#834fff' },
+                        secondary: '#00e3fd',
+                        bg: { dark: '#0e0e0e', light: '#f9f9f9' },
+                        surf: { dark: '#1a1a1a', light: '#ffffff' },
+                        text: { dark: '#ffffff', light: '#1a1a1a' },
+                        mut: { dark: '#adaaaa', light: '#666666' }
+                    }
+                }
+              }
+            }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        .glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .light .glass { background: rgba(0, 0, 0, 0.02); border: 1px solid rgba(0, 0, 0, 0.05); }
+    </style>
+</head>
+<body class="bg-bg-light dark:bg-bg-dark text-text-light dark:text-text-dark selection:bg-primary selection:text-black p-6 md:p-20">
+
+<nav class="fixed top-0 left-0 w-full z-50 bg-bg-light/80 dark:bg-bg-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/5">
+    <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+        <a href="index.html" class="text-lg font-bold tracking-tight font-headline uppercase text-text-light dark:text-text-dark">KADİR ÇALIŞKAN</a>
+        <div class="flex gap-2">
+            <button onclick="toggleTheme()" class="text-mut-light dark:text-mut-dark hover:text-primary transition-all p-1 rounded">
+                <span class="material-symbols-outlined text-sm" id="themeIcon">dark_mode</span>
+            </button>
+            <button onclick="toggleLanguage()" class="text-xs font-mono border border-black/20 dark:border-white/20 px-2 py-1 rounded text-text-light dark:text-text-dark" id="langBtn">EN</button>
+        </div>
+    </div>
+</nav>
+
+<div class="max-w-4xl mx-auto pt-20">
+    <a href="index.html" class="text-stone-500 hover:text-text-light dark:hover:text-text-dark transition-all mb-12 inline-block font-medium">← <span data-i18n="back">Ana Sayfaya Dön</span></a>
+    
+    <header class="mb-12">
+        <h1 class="text-4xl md:text-6xl font-black mb-4 text-purple-600 dark:text-purple-400 uppercase font-headline">Smart Q&A Assistant</h1>
+        <p class="text-stone-400" data-i18n="subtitle">Hugging Face Modelleri ile Akıllı Soru Cevaplama Uygulaması</p>
+    </header>
+
+    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200" class="w-full h-80 object-cover rounded-xl mb-12 border border-black/5 dark:border-white/5" alt="NLP QA">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+        <div class="md:col-span-2 space-y-8 text-stone-400 leading-relaxed">
+            <section>
+                <h2 class="text-2xl font-bold text-text-light dark:text-text-dark mb-4 font-headline" data-i18n="h-scope">NLP Uygulaması</h2>
+                <p data-i18n="p-scope">Bu proje, Doğal Dil İşleme (NLP) teknolojilerini kullanarak metin tabanlı veriler üzerinden soru cevaplama kabiliyetine sahip akıllı bir asistan geliştirmeyi hedefler. Hugging Face platformunun sağladığı gelişmiş altyapı üzerinden oluşturulmuştur.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold text-text-light dark:text-text-dark mb-4 font-headline" data-i18n="h-tech">Model ve Entegrasyon</h2>
+                <p data-i18n="p-tech">Proje içerisinde, Hugging Face üzerinde yayınlanan ve alanında en çok bilinen Soru-Cevap modelleri kullanılmıştır. Bu gelişmiş modeller, son kullanıcıların kolayca etkileşime girebileceği bir arayüz kütüphanesi (UI library) ile birleştirilerek tam teşekküllü bir uygulama haline getirilmiştir.</p>
+            </section>
+        </div>
+
+        <div class="space-y-6 md:sticky md:top-24 md:h-fit">
+            <div class="glass p-6 rounded-xl border-l-4 border-purple-500 transition-colors">
+                <h3 class="font-bold text-mut-light dark:text-mut-dark mb-3 uppercase text-xs tracking-widest">Stack</h3>
+                <div class="flex flex-col gap-2 text-sm text-text-light dark:text-text-dark font-medium">
+                    <span>• Python</span>
+                    <span>• NLP (Natural Language Processing)</span>
+                    <span>• Hugging Face Transformers</span>
+                    <span>• Interface Library (UI)</span>
+                </div>
+            </div>
+            <a href="https://github.com/KAD4TA/Question_Answering" target="_blank" class="block w-full py-3 bg-purple-600 dark:bg-purple-500 text-black text-center font-bold rounded-xl hover:opacity-90 transition-all shadow-lg shadow-purple-500/10" data-i18n="github">GitHub'da İncele</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- Shared Logic ---
+    const translations = {
+        tr: {
+            "back": "Ana Sayfaya Dön",
+            "subtitle": "Hugging Face Modelleri ile Akıllı Soru Cevaplama Uygulaması",
+            "h-scope": "NLP Uygulaması",
+            "p-scope": "Bu proje, Doğal Dil İşleme (NLP) teknolojilerini kullanarak metin tabanlı veriler üzerinden soru cevaplama kabiliyetine sahip akıllı bir asistan geliştirmeyi hedefler. Hugging Face platformunun sağladığı gelişmiş altyapı üzerinden oluşturulmuştur.",
+            "h-tech": "Model ve Entegrasyon",
+            "p-tech": "Proje içerisinde, Hugging Face üzerinde yayınlanan ve alanında en çok bilinen Soru-Cevap modelleri kullanılmıştır. Bu gelişmiş modeller, son kullanıcıların kolayca etkileşime girebileceği bir arayüz kütüphanesi (UI library) ile birleştirilerek tam teşekküllü bir uygulama haline getirilmiştir.",
+            "github": "GitHub'da İncele"
+        },
+        en: {
+            "back": "Back to Home",
+            "subtitle": "Smart Question Answering Application with Hugging Face Models",
+            "h-scope": "NLP Application",
+            "p-scope": "This project aims to develop a smart assistant with question answering capabilities over text-based data using Natural Language Processing (NLP) technologies. It was built upon the advanced infrastructure provided by the Hugging Face platform.",
+            "h-tech": "Model and Integration",
+            "p-tech": "Well-known Question Answering models published on Hugging Face were utilized within the project. These advanced models were combined with a user interface library (UI library) that end-users can easily interact with, turning it into a full-fledged application.",
+            "github": "View on GitHub"
+        }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'tr';
+    updateLanguage();
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'tr' ? 'en' : 'tr';
+        localStorage.setItem('lang', currentLang);
+        updateLanguage();
+    }
+
+    function updateLanguage() {
+        document.getElementById('langBtn').innerText = currentLang === 'tr' ? 'EN' : 'TR';
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[currentLang][key]) { el.innerText = translations[currentLang][key]; }
+        });
+    }
+
+    let currentTheme = localStorage.getItem('theme') || 'dark';
+    updateTheme();
+
+    function toggleTheme() {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', currentTheme);
+        updateTheme();
+    }
+
+    function updateTheme() {
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+            document.getElementById('themeIcon').innerText = 'light_mode';
+        } else {
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
+            document.getElementById('themeIcon').innerText = 'dark_mode';
+        }
+    }
+</script>
+</body>
+</html>
